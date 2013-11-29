@@ -1,0 +1,23 @@
+/* 
+    Document   : principal
+    Created on : Nov 29, 2013, 3:18:39 PM
+    Author     : JUANCARLOS
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.tabla {
+	 border-collapse: collapse;
+     border: 1px;
+}
+
+.tabla thead tr{
+    background-color: #0000EE;
+}
+.tabla thead th{
+    border: 1px solid #000000;
+    color: #FFFFBB;
+}
+
+.tabla tbody td{
+    border: 1px solid #000000;
+}

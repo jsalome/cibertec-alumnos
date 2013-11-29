@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources" value="global"/>
+    <package name="default" namespace="/" extends="struts-default">
+	<action name="login">
+            <result name="success">pages/login.jsp</result>
+        </action>
+        <action name="loginfailed">
+            <result name="success">pages/login.jsp</result>
+        </action>
+        <action name="logout" >
+            <result name="success">pages/login.jsp</result>
+        </action>
+        <action name="mainMenu">
+            <result name="success">pages/mainMenu.jsp</result>
+        </action>                
+    </package>
+    <package name="adminModule" namespace="/admin" extends="default">
+        <!-- Alumnos -->
+        <action name="alumnosList" class="alumnoAction" method="listarAlumnos">
+            <result name="success">/pages/listAlumno.jsp</result>
+        </action>
+        <action name="nuevoAlumno" class="alumnoAction" method="nuevoAlumno">
+            <result name="success">/pages/nuevoAlumno.jsp</result>
+        </action>
+        <action name="obtenerAlumno" class="alumnoAction" method="obtenerAlumno">
+            <result name="success">/pages/actualizarAlumno.jsp</result>
+        </action>
+        <action name="guardarAlumno" class="alumnoAction" method="insertarAlumno">
+            <result name="success" type="redirectAction">alumnosList</result>
+            <result name="exceptionError">/pages/exceptionerror.jsp</result>
+        </action>
+        <action name="actualizarAlumno" class="alumnoAction" method="actualizarAlumno">
+            <result name="success" type="redirectAction">alumnosList</result>
+            <result name="exceptionError">/pages/exceptionerror.jsp</result>
+            <result name="accessDenied">/pages/accessdenied.jsp</result>
+        </action>
+        <action name="eliminarAlumno" class="alumnoAction" method="eliminarAlumno">
+            <result name="success" type="redirectAction">alumnosList</result>
+            <result name="exceptionError">/pages/exceptionerror.jsp</result>
+            <result name="accessDenied">/pages/accessdenied.jsp</result>
+        </action>
+    </package>	
+</struts>
